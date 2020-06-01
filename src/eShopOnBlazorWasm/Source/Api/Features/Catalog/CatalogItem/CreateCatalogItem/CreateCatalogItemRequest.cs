@@ -2,13 +2,13 @@
 {
   using eShopOnBlazorWasm.Features.Bases;
   using MediatR;
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Text;
-  using System.Threading.Tasks;
+  using System.Text.Json.Serialization;
+
   public class CreateCatalogItemRequest : BaseRequest, IRequest<CreateCatalogItemResponse>
   {
-    
+    public const string Route = "api/catalogItem";
+
+    [JsonIgnore]
+    public string RouteFactory => $"{Route}?{nameof(Id)}={Id}";
   }
 }

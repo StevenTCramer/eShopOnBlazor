@@ -2,13 +2,17 @@
 {
   using eShopOnBlazorWasm.Features.Bases;
   using MediatR;
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Text;
-  using System.Threading.Tasks;
+  using System.Text.Json.Serialization;
   public class GetCatalogItemsPaginatedRequest : BaseRequest, IRequest<GetCatalogItemsPaginatedResponse>
   {
-    
+    public const string Route = "api/catalogItem";
+
+    public int PageSize { get; set; }
+
+    public int PageIndex { get; set; }
+
+    [JsonIgnore]
+    public string RouteFactory => 
+      $"{Route}?{nameof(PageSize)}={PageSize}&{nameof(PageIndex)}={PageIndex}&{nameof(Id)}={Id}";
   }
 }
