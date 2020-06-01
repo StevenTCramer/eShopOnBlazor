@@ -8,6 +8,9 @@
   using System.Threading.Tasks;
   public class GetCatalogItemsPaginatedResponse : BaseResponse
   {
-    
+    public GetCatalogItemsPaginatedResponse(Guid aRequestId)
+    {
+      RequestId = aRequestId;
+    }
   }
 }

@@ -8,6 +8,9 @@
   using System.Threading.Tasks;
   public class GetCatalogBrandsResponse : BaseResponse
   {
-    
+    public GetCatalogBrandsResponse(Guid aRequestId)
+    {
+      RequestId = aRequestId;
+    }
   }
 }
